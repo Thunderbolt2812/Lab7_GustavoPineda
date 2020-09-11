@@ -5,6 +5,8 @@
  */
 package lab7_gustavopineda;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,19 +43,41 @@ public class Principal extends javax.swing.JFrame {
         sp_suciedad = new javax.swing.JSpinner();
         jButton2 = new javax.swing.JButton();
         jd_empleado = new javax.swing.JDialog();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        tf_nombre = new javax.swing.JTextField();
+        tf_apellido = new javax.swing.JTextField();
+        sp_edad = new javax.swing.JSpinner();
+        jButton4 = new javax.swing.JButton();
+        cb_carros = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        cb_Atablas = new javax.swing.JComboBox<>();
         jd_cliente = new javax.swing.JDialog();
+        jLabel13 = new javax.swing.JLabel();
+        tf_nombre1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        tf_apellido1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        sp_edad1 = new javax.swing.JSpinner();
+        jLabel17 = new javax.swing.JLabel();
+        cb_carros1 = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         t2 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         t3 = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
         t1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_tabla1 = new javax.swing.JComboBox<>();
         jProgressBar1 = new javax.swing.JProgressBar();
         jProgressBar2 = new javax.swing.JProgressBar();
         jProgressBar3 = new javax.swing.JProgressBar();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cb_tabla2 = new javax.swing.JComboBox<>();
+        cb_tabla3 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         agregarC = new javax.swing.JButton();
@@ -141,26 +165,184 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setText("Agregar Empleado");
+
+        jLabel8.setText("Nombre:");
+
+        jLabel9.setText("Apellido:");
+
+        jLabel10.setText("Edad:");
+
+        jLabel11.setText("Asignar carro:");
+
+        sp_edad.setModel(new javax.swing.SpinnerNumberModel(10, 10, 150, 1));
+
+        jButton4.setText("Agregar Empleado");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jLabel12.setText("Asignar a tabla:");
+
+        cb_Atablas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tabla 1", "Tabla 2", "Tabla 3" }));
+
         javax.swing.GroupLayout jd_empleadoLayout = new javax.swing.GroupLayout(jd_empleado.getContentPane());
         jd_empleado.getContentPane().setLayout(jd_empleadoLayout);
         jd_empleadoLayout.setHorizontalGroup(
             jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_empleadoLayout.createSequentialGroup()
+                .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_empleadoLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel7))
+                    .addGroup(jd_empleadoLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton4)
+                            .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jd_empleadoLayout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cb_Atablas, 0, 106, Short.MAX_VALUE))
+                                .addGroup(jd_empleadoLayout.createSequentialGroup()
+                                    .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel8))
+                                    .addGap(37, 37, 37)
+                                    .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tf_nombre)
+                                        .addComponent(sp_edad, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                                        .addComponent(tf_apellido)))
+                                .addGroup(jd_empleadoLayout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cb_carros, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jd_empleadoLayout.setVerticalGroup(
             jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_empleadoLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel7)
+                .addGap(48, 48, 48)
+                .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tf_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(13, 13, 13)
+                .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(cb_carros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(cb_Atablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
+
+        jLabel13.setText("Nombre:");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel14.setText("Agregar Cliente");
+
+        jLabel15.setText("Apellido:");
+
+        jLabel16.setText("Edad:");
+
+        sp_edad1.setModel(new javax.swing.SpinnerNumberModel(10, 10, 150, 1));
+
+        jLabel17.setText("Asignar carro:");
+
+        cb_carros1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_carros1ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Agregar Cliente");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_clienteLayout = new javax.swing.GroupLayout(jd_cliente.getContentPane());
         jd_cliente.getContentPane().setLayout(jd_clienteLayout);
         jd_clienteLayout.setHorizontalGroup(
             jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_clienteLayout.createSequentialGroup()
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_clienteLayout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addGroup(jd_clienteLayout.createSequentialGroup()
+                                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel15))
+                                .addGap(36, 36, 36)
+                                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sp_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cb_carros1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jd_clienteLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jButton5)))
+                .addContainerGap(134, Short.MAX_VALUE))
+            .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_clienteLayout.createSequentialGroup()
+                    .addGap(87, 87, 87)
+                    .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel16)
+                        .addComponent(jLabel17))
+                    .addContainerGap(252, Short.MAX_VALUE)))
         );
         jd_clienteLayout.setVerticalGroup(
             jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_clienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addGap(44, 44, 44)
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(tf_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(tf_apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sp_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(cb_carros1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+            .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_clienteLayout.createSequentialGroup()
+                    .addGap(150, 150, 150)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(24, 24, 24)
+                    .addComponent(jLabel17)
+                    .addContainerGap(134, Short.MAX_VALUE)))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -232,10 +414,13 @@ public class Principal extends javax.swing.JFrame {
         });
 
         agregarE.setText("Agregar Empleado");
-        agregarE.setEnabled(false);
+        agregarE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregarEMouseClicked(evt);
+            }
+        });
 
         agregarCl.setText("Agregar Cliente");
-        agregarCl.setEnabled(false);
         agregarCl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarClActionPerformed(evt);
@@ -250,26 +435,23 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jProgressBar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                             .addComponent(agregarC)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cb_tabla1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                             .addComponent(agregarE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cb_tabla2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                                .addComponent(jProgressBar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(agregarCl)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                            .addComponent(jProgressBar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(agregarCl)
+                            .addComponent(cb_tabla3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(345, 345, 345)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -291,9 +473,9 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(agregarCl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_tabla1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_tabla2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_tabla3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,11 +495,22 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarClActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarClActionPerformed
-        // TODO add your handling code here:
+        jd_cliente.setModal(true);
+        jd_cliente.pack();
+        jd_cliente.setLocationRelativeTo(this);
+        jd_cliente.setVisible(true);
     }//GEN-LAST:event_agregarClActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Carros c = new Carros(tf_placa.getText(),(String)cb_tamaño.getSelectedItem(),(Integer)sp_puertas.getValue(),(Integer)sp_suciedad.getValue());
+        Carros c = new Carros(tf_placa.getText(), (String) cb_tamaño.getSelectedItem(), (Integer) sp_puertas.getValue(), (Integer) sp_suciedad.getValue());
+        adminCarros adca = new adminCarros("./Carros.mak");
+            adca.cargarArchivo();
+            adca.setCarros(c);
+            adca.escribirArchivo();
+        DefaultComboBoxModel L1 = (DefaultComboBoxModel) cb_carros.getModel();
+        L1.addElement(c);
+        DefaultComboBoxModel L2 = (DefaultComboBoxModel) cb_carros1.getModel();
+        L2.addElement(c);
         agregarE.setEnabled(true);
         agregarCl.setEnabled(true);
         tf_placa.setText("");
@@ -335,8 +528,82 @@ public class Principal extends javax.swing.JFrame {
         jd_carro.setVisible(true);
     }//GEN-LAST:event_agregarCActionPerformed
 
+    private void agregarEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarEMouseClicked
+        jd_empleado.setModal(true);
+        jd_empleado.pack();
+        jd_empleado.setLocationRelativeTo(this);
+        jd_empleado.setVisible(true);
+    }//GEN-LAST:event_agregarEMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        ArrayList<Carros> ac = new ArrayList();
+        if (cb_carros.getSelectedIndex() != -1) {
+            String nombre = tf_nombre.getText();
+            String apellido = tf_apellido.getText();
+            int edad = (Integer) sp_edad.getValue();
+            ac.add((Carros) cb_carros.getSelectedItem());
+            Empleados y = new Empleados(ac, nombre, apellido, edad);
+            adminEmpleados ade = new adminEmpleados("./Empleados.mak");
+            ade.cargarArchivo();
+            ade.setEmpleados(y);
+            ade.escribirArchivo();
+            tf_nombre.setText("");
+            tf_apellido.setText("");
+            int pos = cb_carros.getSelectedIndex();
+            cb_carros.removeItemAt(pos);
+            JOptionPane.showMessageDialog(this, "Se agrego un empleado exitosamente");
+            jd_empleado.setVisible(false);
+            if (cb_Atablas.getSelectedItem().equals("Tabla 1")) {
+                DefaultComboBoxModel m1 = (DefaultComboBoxModel) cb_tabla1.getModel();
+                m1.addElement(y);
+            }
+            if (cb_Atablas.getSelectedItem().equals("Tabla 2")) {
+                DefaultComboBoxModel m2 = (DefaultComboBoxModel) cb_tabla2.getModel();
+                m2.addElement(y);
+            }
+            if (cb_Atablas.getSelectedItem().equals("Tabla 3")) {
+                DefaultComboBoxModel m3 = (DefaultComboBoxModel) cb_tabla3.getModel();
+                m3.addElement(y);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Primero Agregue un carro");
+            jd_empleado.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void cb_carros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_carros1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_carros1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ArrayList<Carros> ac = new ArrayList();
+        if (cb_carros1.getSelectedIndex() != -1) {
+            String nombre = tf_nombre1.getText();
+            String apellido = tf_apellido1.getText();
+            int edad = (Integer) sp_edad1.getValue();
+            ac.add((Carros) cb_carros1.getSelectedItem());
+            Clientes v = new Clientes(ac, nombre, apellido, edad);
+            adminClientes adc = new adminClientes("./Clientes.mak");
+            adc.cargarArchivo();
+            adc.setCliente(v);
+            adc.escribirArchivo();
+            tf_nombre1.setText("");
+            tf_apellido1.setText("");
+            int pos = cb_carros.getSelectedIndex();
+            cb_carros.removeItemAt(pos);
+            JOptionPane.showMessageDialog(this, "Se agrego un cliente exitosamente");
+            jd_cliente.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "Agregue un carro primero");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
-     * @param agregarC command line arguments
+     * @param args
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -351,22 +618,16 @@ public class Principal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
+        //</editor-fold>
+
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Principal().setVisible(true);
         });
     }
 
@@ -374,18 +635,34 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton agregarC;
     private javax.swing.JButton agregarCl;
     private javax.swing.JButton agregarE;
+    private javax.swing.JComboBox<String> cb_Atablas;
+    private javax.swing.JComboBox<String> cb_carros;
+    private javax.swing.JComboBox<String> cb_carros1;
+    private javax.swing.JComboBox<String> cb_tabla1;
+    private javax.swing.JComboBox<String> cb_tabla2;
+    private javax.swing.JComboBox<String> cb_tabla3;
     private javax.swing.JComboBox<String> cb_tamaño;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JProgressBar jProgressBar3;
@@ -395,11 +672,17 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_carro;
     private javax.swing.JDialog jd_cliente;
     private javax.swing.JDialog jd_empleado;
+    private javax.swing.JSpinner sp_edad;
+    private javax.swing.JSpinner sp_edad1;
     private javax.swing.JSpinner sp_puertas;
     private javax.swing.JSpinner sp_suciedad;
     private javax.swing.JTable t1;
     private javax.swing.JTable t2;
     private javax.swing.JTable t3;
+    private javax.swing.JTextField tf_apellido;
+    private javax.swing.JTextField tf_apellido1;
+    private javax.swing.JTextField tf_nombre;
+    private javax.swing.JTextField tf_nombre1;
     private javax.swing.JTextField tf_placa;
     // End of variables declaration//GEN-END:variables
 }
