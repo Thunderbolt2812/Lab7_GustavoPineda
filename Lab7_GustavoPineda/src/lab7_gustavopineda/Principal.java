@@ -8,6 +8,7 @@ package lab7_gustavopineda;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+
     }
 
     /**
@@ -73,9 +75,9 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         t1 = new javax.swing.JTable();
         cb_tabla1 = new javax.swing.JComboBox<>();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
-        jProgressBar3 = new javax.swing.JProgressBar();
+        progbar1 = new javax.swing.JProgressBar();
+        progbar2 = new javax.swing.JProgressBar();
+        progbar3 = new javax.swing.JProgressBar();
         cb_tabla2 = new javax.swing.JComboBox<>();
         cb_tabla3 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
@@ -401,7 +403,14 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(t1);
 
+        progbar1.setMaximum(22);
+
         jButton1.setText("Simular");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setText("Try-Carwash");
@@ -436,20 +445,20 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(progbar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                             .addComponent(agregarC)
                             .addComponent(cb_tabla1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                            .addComponent(progbar2, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                             .addComponent(agregarE)
                             .addComponent(cb_tabla2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                            .addComponent(jProgressBar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(progbar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(agregarCl)
                             .addComponent(cb_tabla3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -478,9 +487,9 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(cb_tabla3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(progbar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(progbar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(progbar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -504,9 +513,9 @@ public class Principal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Carros c = new Carros(tf_placa.getText(), (String) cb_tamaño.getSelectedItem(), (Integer) sp_puertas.getValue(), (Integer) sp_suciedad.getValue());
         adminCarros adca = new adminCarros("./Carros.mak");
-            adca.cargarArchivo();
-            adca.setCarros(c);
-            adca.escribirArchivo();
+        adca.cargarArchivo();
+        adca.setCarros(c);
+        adca.escribirArchivo();
         DefaultComboBoxModel L1 = (DefaultComboBoxModel) cb_carros.getModel();
         L1.addElement(c);
         DefaultComboBoxModel L2 = (DefaultComboBoxModel) cb_carros1.getModel();
@@ -580,27 +589,110 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_carros1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        ArrayList<Carros> ac = new ArrayList();
+        ArrayList<Carros> acd = new ArrayList();
         if (cb_carros1.getSelectedIndex() != -1) {
             String nombre = tf_nombre1.getText();
             String apellido = tf_apellido1.getText();
             int edad = (Integer) sp_edad1.getValue();
-            ac.add((Carros) cb_carros1.getSelectedItem());
-            Clientes v = new Clientes(ac, nombre, apellido, edad);
+            acd.add((Carros) cb_carros1.getSelectedItem());
+            Clientes v = new Clientes(acd, nombre, apellido, edad);
             adminClientes adc = new adminClientes("./Clientes.mak");
             adc.cargarArchivo();
             adc.setCliente(v);
             adc.escribirArchivo();
             tf_nombre1.setText("");
             tf_apellido1.setText("");
-            int pos = cb_carros.getSelectedIndex();
-            cb_carros.removeItemAt(pos);
+            int pos = cb_carros1.getSelectedIndex();
+            cb_carros1.removeItemAt(pos);
             JOptionPane.showMessageDialog(this, "Se agrego un cliente exitosamente");
             jd_cliente.setVisible(false);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Agregue un carro primero");
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        try {
+            Empleados e1 = (Empleados) cb_tabla1.getSelectedItem();
+            Carros c1 = e1.getCar().get(0);
+            double tam = 0;
+            if (c1.getTamaño().equals("Pequeño")) {
+                tam = 1.5;
+            }
+            if (c1.getTamaño().equals("Mediano")) {
+                tam = 1.8;
+            }
+            if (c1.getTamaño().equals("Grande")) {
+                tam = 2.2;
+            }
+            int suciedad = c1.getSuciedad();
+            int max = (int) (tam * suciedad);
+            progbar1.setMaximum((int) max);
+            ab = new adminBarra1(progbar1, max);
+            ab.start();
+            if (ab.getMax()==progbar1.getValue()) {
+                Object[] newrow = {c1.getPlaca(), c1.getTamaño(), c1.getSuciedad(), max};
+                DefaultTableModel tm1 = (DefaultTableModel) t1.getModel();
+                tm1.addRow(newrow);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
+        }
+
+        //2
+        try {
+            Empleados e2 = (Empleados) cb_tabla2.getSelectedItem();
+            Carros c2 = e2.getCar().get(0);
+            double tam2 = 0;
+            if (c2.getTamaño().equals("Pequeño")) {
+                tam2 = 1.5;
+            }
+            if (c2.getTamaño().equals("Mediano")) {
+                tam2 = 1.8;
+            }
+            if (c2.getTamaño().equals("Grande")) {
+                tam2 = 2.2;
+            }
+            int suciedad = c2.getSuciedad();
+            double max2 = tam2 * suciedad;
+            try {
+                progbar2.setMaximum((int) max2);
+                ab2 = new adminBarra1(progbar2, (int) max2);
+                ab2.start();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
+        }
+        //3
+        try {
+            Empleados e3 = (Empleados) cb_tabla3.getSelectedItem();
+            Carros c3 = e3.getCar().get(0);
+            double tam = 0;
+            if (c3.getTamaño().equals("Pequeño")) {
+                tam = 1.5;
+            }
+            if (c3.getTamaño().equals("Mediano")) {
+                tam = 1.8;
+            }
+            if (c3.getTamaño().equals("Grande")) {
+                tam = 2.2;
+            }
+            int suciedad = c3.getSuciedad();
+            double max3 = tam * suciedad;
+            try {
+                progbar3.setMaximum((int) max3);
+                ab3 = new adminBarra1(progbar3, (int) max3);
+                ab3.start();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args
@@ -663,15 +755,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
-    private javax.swing.JProgressBar jProgressBar3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JDialog jd_carro;
     private javax.swing.JDialog jd_cliente;
     private javax.swing.JDialog jd_empleado;
+    private javax.swing.JProgressBar progbar1;
+    private javax.swing.JProgressBar progbar2;
+    private javax.swing.JProgressBar progbar3;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JSpinner sp_edad1;
     private javax.swing.JSpinner sp_puertas;
@@ -685,4 +777,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombre1;
     private javax.swing.JTextField tf_placa;
     // End of variables declaration//GEN-END:variables
+    adminBarra1 ab;
+    adminBarra1 ab2;
+    adminBarra1 ab3;
 }
