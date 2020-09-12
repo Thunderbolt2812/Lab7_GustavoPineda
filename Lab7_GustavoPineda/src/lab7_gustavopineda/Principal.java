@@ -21,7 +21,27 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-
+        DefaultTableModel tm = (DefaultTableModel) t1.getModel();
+        adminT b = new adminT("/.Tabla1.mak");
+        b.cargarArchivo();
+        for (int i = 0; i < b.getAe().size(); i++) {
+            Object[]newrow={b.getAe().get(i).getPlaca(),b.getAe().get(i).getTamaño(),b.getAe().get(i).getSuciedad(),b.getAe().get(i).getMax()};
+            tm.addRow(newrow);
+        }
+        DefaultTableModel tm2 = (DefaultTableModel) t2.getModel();
+        adminT c = new adminT("/.Tabla2.mak");
+        c.cargarArchivo();
+        for (int i = 0; i < c.getAe().size(); i++) {
+            Object[]newrow={c.getAe().get(i).getPlaca(),c.getAe().get(i).getTamaño(),c.getAe().get(i).getSuciedad(),c.getAe().get(i).getMax()};
+            tm.addRow(newrow);
+        }
+        DefaultTableModel tm3 = (DefaultTableModel) t3.getModel();
+        adminT d = new adminT("/.Tabla3.mak");
+        d.cargarArchivo();
+        for (int i = 0; i < d.getAe().size(); i++) {
+            Object[]newrow={d.getAe().get(i).getPlaca(),d.getAe().get(i).getTamaño(),d.getAe().get(i).getSuciedad(),d.getAe().get(i).getMax()};
+            tm.addRow(newrow);
+        }
     }
 
     /**
@@ -516,8 +536,6 @@ public class Principal extends javax.swing.JFrame {
         adca.cargarArchivo();
         adca.setCarros(c);
         adca.escribirArchivo();
-        DefaultComboBoxModel L1 = (DefaultComboBoxModel) cb_carros.getModel();
-        L1.addElement(c);
         DefaultComboBoxModel L2 = (DefaultComboBoxModel) cb_carros1.getModel();
         L2.addElement(c);
         agregarE.setEnabled(true);
@@ -575,7 +593,7 @@ public class Principal extends javax.swing.JFrame {
                 m3.addElement(y);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Primero Agregue un carro");
+            JOptionPane.showMessageDialog(this, "Primero Agregue un cliente con un carro");
             jd_empleado.setVisible(false);
         }
     }//GEN-LAST:event_jButton4MouseClicked
@@ -603,6 +621,8 @@ public class Principal extends javax.swing.JFrame {
             tf_nombre1.setText("");
             tf_apellido1.setText("");
             int pos = cb_carros1.getSelectedIndex();
+            DefaultComboBoxModel L1 = (DefaultComboBoxModel) cb_carros.getModel();
+            L1.addElement(cb_carros1.getItemAt(pos));
             cb_carros1.removeItemAt(pos);
             JOptionPane.showMessageDialog(this, "Se agrego un cliente exitosamente");
             jd_cliente.setVisible(false);
@@ -630,12 +650,16 @@ public class Principal extends javax.swing.JFrame {
             progbar1.setMaximum((int) max);
             ab = new adminBarra1(progbar1, max);
             ab.start();
-            if (ab.getMax()==progbar1.getValue()) {
+            if (ab.getMax() == progbar1.getValue()) {
                 Object[] newrow = {c1.getPlaca(), c1.getTamaño(), c1.getSuciedad(), max};
                 DefaultTableModel tm1 = (DefaultTableModel) t1.getModel();
                 tm1.addRow(newrow);
             }
-
+            ET g = new ET(c1.getPlaca(), c1.getTamaño(), c1.getSuciedad(), max);
+            adminT ap = new adminT("./Tabla1.mak");
+            ap.cargarArchivo();
+            ap.setElement(g);
+            ap.escribirArchivo();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
         }
@@ -656,13 +680,19 @@ public class Principal extends javax.swing.JFrame {
             }
             int suciedad = c2.getSuciedad();
             double max2 = tam2 * suciedad;
-            try {
-                progbar2.setMaximum((int) max2);
-                ab2 = new adminBarra1(progbar2, (int) max2);
-                ab2.start();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
+            progbar2.setMaximum((int) max2);
+            ab2 = new adminBarra1(progbar2, (int) max2);
+            ab2.start();
+            if (ab.getMax() == progbar1.getValue()) {
+                Object[] newrow = {c2.getPlaca(), c2.getTamaño(), c2.getSuciedad(), max2};
+                DefaultTableModel tm1 = (DefaultTableModel) t1.getModel();
+                tm1.addRow(newrow);
             }
+            ET p = new ET(c2.getPlaca(), c2.getTamaño(), c2.getSuciedad(), max2);
+            adminT ap = new adminT("./Tabla2.mak");
+            ap.cargarArchivo();
+            ap.setElement(p);
+            ap.escribirArchivo();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
         }
@@ -682,13 +712,19 @@ public class Principal extends javax.swing.JFrame {
             }
             int suciedad = c3.getSuciedad();
             double max3 = tam * suciedad;
-            try {
-                progbar3.setMaximum((int) max3);
-                ab3 = new adminBarra1(progbar3, (int) max3);
-                ab3.start();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
+            progbar3.setMaximum((int) max3);
+            ab3 = new adminBarra1(progbar3, (int) max3);
+            ab3.start();
+            if (ab.getMax() == progbar1.getValue()) {
+                Object[] newrow = {c3.getPlaca(), c3.getTamaño(), c3.getSuciedad(), max3};
+                DefaultTableModel tm1 = (DefaultTableModel) t1.getModel();
+                tm1.addRow(newrow);
             }
+            ET f = new ET(c3.getPlaca(), c3.getTamaño(), c3.getSuciedad(), max3);
+            adminT ap = new adminT("./Tabla3.mak");
+            ap.cargarArchivo();
+            ap.setElement(f);
+            ap.escribirArchivo();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error verifique que los datos no esten vacios");
         }

@@ -59,13 +59,12 @@ public class adminBarra1 extends Thread {
     @Override
     public void run(){
         while(vive){
-            if(avanzar){
                 barra1.setValue(barra1.getValue()+1);
                 if(barra1.getValue()==max){
                     vive=false;
                     JOptionPane.showMessageDialog(null, "Simulacion terminada");
                 }                
-            }
+            
             
             try {
                 Thread.sleep(1000);
